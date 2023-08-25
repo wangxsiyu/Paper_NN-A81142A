@@ -1,8 +1,7 @@
-masterdir = 'W:\Wang_1_Priority\2023_Wang_Averbeck_Attractor_Uncertainty\Codes\TempData\all_CUEON_win50_step50';
+masterdir = '..\TempData';
 version = W.basenames(masterdir);
-figdir = W.mkdir(fullfile('../Figures', version));
 %% loopers
-W_lp = W_looper_folder(masterdir, [], [], figdir);
+W_lp = W_looper_folder(masterdir);
 sub = W.decell(W_lp.looper_loadall('sub'));
 sub = cellfun(@(x)x, sub);
 sub = struct2table(sub);
