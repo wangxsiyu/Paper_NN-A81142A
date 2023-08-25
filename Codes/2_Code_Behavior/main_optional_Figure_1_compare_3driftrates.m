@@ -3,9 +3,6 @@ dr0 = sub.avDRIFTRATE_byCONDITION;
 dr1 = sub.pyDDM_vanilla;
 dr2 = sub.pyDDM_collapsingbound;
 %% drift rate correlation by animal
-if plt.set_savename('FIG - behavior - ddm cor')
-    return;
-end
 plt.figure(2,2, 'is_title',1);
 plt.setfig(1:2, 'title', plt.custom_vars.name_monkeys);
 plt.setfig_all('legloc', 'SE');

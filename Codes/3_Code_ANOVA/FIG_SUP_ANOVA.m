@@ -1,7 +1,4 @@
-function FIG_SUP_ANOVA(plt, savename, sub, wv_anova)
-    if plt.set_savename(savename)
-        return;
-    end
+function FIG_SUP_ANOVA(plt, sub, wv_anova)
     time_at = wv_anova{1}.time_at;
     animal = sub.animal;
     leg_anova = wv_anova{1}.anova_names_factors;

@@ -1,7 +1,4 @@
-function FIG_SUP_Grad(plt, savename, sub, ttmslice, EL)
-    if plt.set_savename(savename)
-        return;
-    end
+function FIG_SUP_Grad(plt, sub, ttmslice, EL)
     EL = W.cellfun(@(x)x.EL_choice, EL, false);
 %%
     time_EL = EL{1}.time_at;
@@ -34,6 +31,7 @@ function FIG_SUP_Grad(plt, savename, sub, ttmslice, EL)
 
 
     plt.setfig_ax('xlabel', 'position','legloc','SouthEastOutside', 'xlim', [-5, 5]);
+%     tEL(isnan(tEL)) = 0;
     plt.plot(x_EL, tEL,[],'line', 'color', cols{1});
     hold on;
     quiver(x_EL, tEL, gd, gd*0,'off','color',cols{1});

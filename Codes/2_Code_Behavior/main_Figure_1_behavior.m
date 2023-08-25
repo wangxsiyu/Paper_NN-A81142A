@@ -1,7 +1,7 @@
-function main_Figure_1_behavior(plt, sub, data, outputname)
+function figdata = main_Figure_1_behavior(plt, outputname, sub, data)
 games = W.cellfun(@(x)x.games, data, false);
 %% print stats
-fid = fopen(outputname, 'wt');
+fid = fopen(W.enext(outputname,'txt'), 'wt');
 te_nt = cellfun(@(x)size(x.games,1), data);
 W.fprintf(fid, '#trials(V) = %.2f, #trials(W) = %.2f', W.analysis_av_bygroup(te_nt', sub.idx_animal));
 te_nt = cellfun(@(x)length(x.spikes), data);
@@ -18,5 +18,5 @@ W.fprintf(fid, 'reject (pooled): avRT(V) = %.2f, avRT(W) = %.2f', arrayfun(@(t) 
 W.fprintf(fid, 'reject (pooled): midRT(V) = %.2f, midRT(W) = %.2f', arrayfun(@(t) median(W.cell_vertcat_cellfun(@(x)x.rt_reject, games(sub.idx_animal == t)), 'omitnan'), 1:2));
 fclose(fid);
 %%     
-FIGURE_behavior(plt, sub, games);
+figdata = FIGURE_behavior(plt, sub, games);
 end

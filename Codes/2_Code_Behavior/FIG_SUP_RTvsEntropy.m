@@ -1,14 +1,11 @@
-function FIG_SUP_RTvsEntropy(plt, savename, sub, games)
-    if plt.set_savename(savename)
-        return;
-    end
+function FIG_SUP_RTvsEntropy(plt, sub, games)
     %%
     games = W.cellfun(@(x)x.games, games, false);
     gp = W.analysis_tab_av_bygroup(sub, 'animal', {'V','W'}, ...
         {'avCHOICE_byCONDITION','ENTROPY_byCONDITION', ...
         'avDELAY_byCONDITION', 'avDROP_byCONDITION'});
     %% figures
-    plt.figure(2,2, 'matrix_title',[1 1;0 0], 'gapW_custom', [0 0 20]);
+    plt.figure(2,2, 'matrix_title',[1 1;0 0], 'gapW_custom', [0 0 0.5]);
     mks = unique(sub.animal);
     tlt = W.file_prefix(mks, 'Monkey', ' ');
     for fi = 1:2

@@ -1,4 +1,4 @@
-function FIG_Energy_landscape_over_time(plt, x1D, time_at, EL, games, animal)
+function figdata = FIG_Energy_landscape_over_time(plt, x1D, time_at, EL, games, animal)
     %%
     avtraj = {[],[]};
     for ti = 1:length(x1D)
@@ -26,15 +26,20 @@ function FIG_Energy_landscape_over_time(plt, x1D, time_at, EL, games, animal)
         avTJ{i} = [W.avse(avtraj{1}(animal == mks(i),:)); W.avse(avtraj{2}(animal == mks(i),:))];
     end
     %% development
-    plt.figure(1,2,'is_title', 1, 'gapW_custom', [0 1 1] * 50);
+    plt.figure(1,2,'is_title', 1, 'gapW_custom', [0 1 1] * 1.25);
     plt.setfig('title', W.str2cell(W.file_prefix(mks, 'Monkey',' ')));
     cols = strcat(plt.custom_vars.color_rejectaccept, '50');
+    figdata.monkey = mks;
     for i = 1:2
         plt.setfig_ax('xlabel','time (ms)',...
             'ylabel', 'position', ...
         'xtick', -500:500:1500, 'xticklabel', {'-500','Cue On','500','1000','1500'}, ...
         'xtickangle', 0, 'ylim', [-4, 4], 'ytick', [-4:2:4]);
         pcolor(time_EL, x_EL, avEL{i}');
+        figdata.PanelF{i}.x = time_EL;
+        figdata.PanelF{i}.y = x_EL;
+        figdata.PanelF{i}.z = avEL{i}';
+
         shading interp 
 
 %         set(gca,'color',0*[1 1 1]);

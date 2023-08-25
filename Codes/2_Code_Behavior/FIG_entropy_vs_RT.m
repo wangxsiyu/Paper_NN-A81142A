@@ -1,4 +1,4 @@
-function [plt] = FIG_entropy_vs_RT(plt, sub, option)
+function [plt, figdata] = FIG_entropy_vs_RT(plt, sub, option)
     if ~exist('option', 'var') || isempty(option)
         option = 'reject';
     end
@@ -39,8 +39,12 @@ function [plt] = FIG_entropy_vs_RT(plt, sub, option)
 %         tstr = sprintf('R^2 = %.2f, p = %.2g', tmd.Rsquared.Adjusted, tmd.Coefficients.pValue(2));
         hold on;
         str{si} = sprintf("Monkey %s: %s", mks(si), tstr);
+        figdata.x{si} = tx;
+        figdata.y{si} = ty0;
     end
     l = lsline;
     set(l, 'linewidth', plt.param_plt.linewidth);
     plt.setfig_ax('legend', str, 'legloc', "NW");
+
+    figdata.monkey = mks;
 end

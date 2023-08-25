@@ -1,4 +1,4 @@
-function FIG_Energy_landscape_by_cue(plt, EL, sub, timeslice, option)
+function figdata = FIG_Energy_landscape_by_cue(plt, EL, sub, timeslice, option)
     time_EL = EL{1}.EL_cue.time_at;
     x_EL = EL{1}.EL_cue.x_at;
     %% compile curves by cue
@@ -31,10 +31,11 @@ function FIG_Energy_landscape_by_cue(plt, EL, sub, timeslice, option)
         % compute pa
         pa(i,:) = mean(sub.avCHOICE_byCONDITION(sub.idx_animal == i,:));
     end
-    %% development
-    plt.figure(1,2,'is_title', 1, 'gapW_custom', [0 1 1] * 100);
+    %% by cue
+    plt.figure(1,2,'is_title', 1, 'gapW_custom', [0 1 1] * 4);
     plt.setfig('title', W.str2cell(W.file_prefix(mks, 'Monkey',' ')));
     cols = plt.translatecolors({plt.custom_vars.color_rejectaccept{1},'yellow',plt.custom_vars.color_rejectaccept{2}});
+    figdata.monkeys = mks;
     for i = 1:2
         [~,od] = sort(pa(i,:));
         condcolors = W.arrayfun(@(x)plt.interpolatecolors(cols, [0,.5,1], x), pa(i,:));
@@ -44,6 +45,9 @@ function FIG_Energy_landscape_by_cue(plt, EL, sub, timeslice, option)
             'legend', leg, 'xlim', [-5, 5], 'ylim', [-10, 25]);
         plt.plot(x_EL, avEL{i}(od,:),seEL{i}(od,:),'shade', 'color', condcolors(od));
         plt.new;
+        figdata.panel{i}.x = x_EL;
+        figdata.panel{i}.y = avEL{i}(od,:);
+        figdata.panel{i}.se = seEL{i}(od,:);
     end
     plt.update([],'  ');
 end

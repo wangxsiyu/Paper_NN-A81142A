@@ -1,7 +1,4 @@
-function main_FIGURE_2_EL_bycue(plt, savename, EL, sub, timeslice, option)
-    if plt.set_savename(savename)
-        return;
-    end
+function figdata = main_FIGURE_2_EL_bycue(plt, EL, sub, timeslice, option)
     %%
-    FIG_Energy_landscape_by_cue(plt, EL, sub, timeslice, option);   
+    figdata = FIG_Energy_landscape_by_cue(plt, EL, sub, timeslice, option);   
 end

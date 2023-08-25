@@ -1,8 +1,5 @@
-function main_FIGURE_2_PC20vs50(plt, dc1, dc2, sub, time_at, option)
+function main_Figure_2_PC20vs50(plt, dc1, dc2, sub, time_at, option)
 if option == 1
-    if plt.set_savename('decode_20_vs_50')
-        return;
-    end
     %% figures
     time_at = [-1000:50:2000];
     plt.figure(1,2, 'is_title',1);

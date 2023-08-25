@@ -1,0 +1,8 @@
+#trials(V) = 848.38, #trials(W) = 760.50
+#cells(V) = 326.88, #cells(W) = 527.50
+reject: avRT(V) = 0.58, avRT(W) = 0.61
+accept: avRT(V) = 0.43, avRT(W) = 0.39
+reject: midRT(V) = 0.43, midRT(W) = 0.43
+accept: midRT(V) = 0.39, midRT(W) = 0.35
+reject (pooled): avRT(V) = 0.55, avRT(W) = 0.59
+reject (pooled): midRT(V) = 0.41, midRT(W) = 0.37

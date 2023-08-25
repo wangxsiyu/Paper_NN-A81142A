@@ -1,4 +1,4 @@
-function plt = FIG_behavior_vs_cue(plt, gp, strx, ylab)
+function [plt, figdata] = FIG_behavior_vs_cue(plt, gp, strx, ylab)
     leg = W.file_prefix({'V','W'}, 'Monkey', ' ');
     av = gp.(['av' strx]);
     se = gp.(['se' strx]);
@@ -13,4 +13,7 @@ function plt = FIG_behavior_vs_cue(plt, gp, strx, ylab)
         'xtick', 1:9,'xticklabel', xtklb, 'xtickangle', 0);
     plt.plot([], av(:,od), se(:,od), 'line', ...
         'color', plt.custom_vars.color_monkeys);
+    figdata.x = av(:, od);
+    figdata.y = se(:, od);
+    figdata.monkey = leg;
 end

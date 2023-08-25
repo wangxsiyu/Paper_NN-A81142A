@@ -1,7 +1,4 @@
-function FIG_SUP_decodeDelayDrop(plt, savename, sub, wv_pca, wv_decode)
-    if plt.set_savename(savename)
-        return;
-    end
+function FIG_SUP_decodeDelayDrop(plt, sub, wv_pca, wv_decode)
     animal = sub.animal;
     time_at = wv_pca{1}.time_at;
     plt.figure(1,3);

@@ -1,4 +1,4 @@
-function FIGURE_1D_model(plt, savename, mdX, sub, ver, ispartial)
+function FIGURE_1D_model(plt, mdX, sub, ver, ispartial)
     %%
     if plt.set_savename(savename)
         return;

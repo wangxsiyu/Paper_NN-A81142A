@@ -1,4 +1,4 @@
-function plt = FIG_dist_RT(plt, games, animal)
+function [plt, figdata] = FIG_dist_RT(plt, games, animal)
     mks = unique(animal);
     leg = W.file_prefix(mks, 'Monkey', ' ');
     plt.setfig_ax('ylabel', 'density', 'xlabel', 'Reaction time (s)', ...
@@ -11,4 +11,7 @@ function plt = FIG_dist_RT(plt, games, animal)
     end
     ty = ty./sum(ty,2)/0.003;
     plt.plot(tx,ty,[],'line', 'color', plt.custom_vars.color_monkeys);
+    figdata.x = tx;
+    figdata.y = ty;
+    figdata.monkey = leg;
 end
