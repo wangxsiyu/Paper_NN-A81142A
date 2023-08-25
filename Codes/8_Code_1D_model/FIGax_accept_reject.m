@@ -1,4 +1,4 @@
-function plt = FIGax_accept_reject(plt, mdX, sub, time_md)
+function [plt, figdata] = FIGax_accept_reject(plt, mdX, sub, time_md)
     cols = plt.custom_vars.color_monkeys;
     mks = unique(sub.animal);
     leg = W.file_prefix(mks,'Monkey', ' ');
@@ -30,6 +30,11 @@ function plt = FIGax_accept_reject(plt, mdX, sub, time_md)
         'legend',{'reject, certain', 'accept certain', 'reject, uncertain', 'accept, uncertain'}, ...
         'xtick', -1000:1000:2000, 'xticklabel', {'-1000','Cue On','1000','2000'}, 'legloc', 'SE');
     plt.plot(time_md, av(tod,:), se(tod,:), 'line', 'color', [colra strcat(colra, '50')]);
+    figdata.x = time_md;
+    figdata.y = av(tod,:);
+    figdata.se = se(tod,:);
+    figdata.legend = {'reject, certain', 'accept certain', 'reject, uncertain', 'accept, uncertain'};
+    figdata.p = pp;
     plt.dashY(0, [.2 1]);
     plt.sigstar(time_md, pp*0 +0.94, pp);
     W.print('sig T (A0): %.2f', min(time_md(pp < 0.05 & time_md > 0)));

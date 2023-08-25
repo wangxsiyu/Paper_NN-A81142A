@@ -1,4 +1,4 @@
-function plt = FIGax_x0(plt, mdX, sub, time_md)
+function [plt, figdata] = FIGax_x0(plt, mdX, sub, time_md)
     cols = plt.custom_vars.color_monkeys;
     mks = unique(sub.animal);
     leg = W.file_prefix(mks,'Monkey', ' ');
@@ -20,7 +20,12 @@ function plt = FIGax_x0(plt, mdX, sub, time_md)
     hold on;
     plt.plot(time_md, av1, se1, 'line', 'color', strcat(cols,'50'), 'addtolegend', 0);
     plt.dashY(0, [-1 1]);
-
+    figdata.x = time_md;
+    figdata.y_dark = av2;
+    figdata.se_dark = se2;
+    figdata.y_light = av1;
+    figdata.se_light = se1;
+    figdata.monkeys = mks;
     W.print('sig T (x0-1): %.2f', min(time_md(pp_1 < 0.05 & time_md > 0)));
 %     W.print('sig T (x0-2): %.2f', min(time_md(pp_2 < 0.05 & time_md > 0)));
 

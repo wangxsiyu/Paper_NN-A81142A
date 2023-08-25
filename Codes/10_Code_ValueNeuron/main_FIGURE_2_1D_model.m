@@ -1,8 +1,4 @@
-function main_FIGURE_2_1D_model(plt, savename, sub, all)
-    if plt.set_savename(savename)
-        return;
-    end    
-
+function figdata = main_FIGURE_2_1D_model(plt, sub, all)
     %% Figure
     time_md = all{1}.mdfit{1}.time_md;
     plt.figure(2,3,'is_title', 1);
@@ -27,7 +23,7 @@ function main_FIGURE_2_1D_model(plt, savename, sub, all)
 %         plt.plot(time_md, av, se, 'line', 'color', cols);
 %         plt.dashY(0, [-0.9 0.6]);
 %         plt.sigstar(time_md, pp*0 -0.9, pp);
-        plt = FIGax_A(plt, mdX, sub,time_md, 0);
+        [plt, figdata.panelABC{i}] = FIGax_A(plt, mdX, sub,time_md, 0);
         
         plt.ax(2,i);
 %         pas = reshape(sub.avCHOICE_byCONDITION',[],1);
@@ -54,6 +50,6 @@ function main_FIGURE_2_1D_model(plt, savename, sub, all)
 %         plt.plot(time_md, av(tod,:), se(tod,:), 'line', 'color', [colra strcat(colra, '50')]);
 %         plt.dashY(0, [.2 1]);
 %         plt.sigstar(time_md, pp*0 +0.94, pp);
-        plt = FIGax_accept_reject(plt, mdX, sub,time_md);
+        [plt, figdata.panelDEF{i}] = FIGax_accept_reject(plt, mdX, sub,time_md);
     end
     plt.update;

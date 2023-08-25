@@ -1,7 +1,4 @@
-function main_FIGURE_3_model3D_x0(plt, savename, sub, mdX, x1D)
-    if plt.set_savename(savename)
-        return;
-    end
+function figdata = main_FIGURE_3_model3D_x0(plt, option1D, sub, mdX, x1D)
     %% figure 2
     time_md = mdX{1}.time_md;
     %% compute eig
@@ -38,6 +35,10 @@ function main_FIGURE_3_model3D_x0(plt, savename, sub, mdX, x1D)
         plt.dashY(0, [-1 1]);
         plt.sigstar(time_md, pp*0 -1, pp);
         
+        figdata.panelABC{i}.x = time_md;
+        figdata.panelABC{i}.y = av;
+        figdata.panelABC{i}.se = se;
+        figdata.panelABC{i}.p = pp;
 %         plt.ax(2,i);
 %         pas = reshape(sub.avCHOICE_byCONDITION',[],1);
 %         as = W.cellfun(@(x)x, zmag, false);
@@ -77,9 +78,9 @@ function main_FIGURE_3_model3D_x0(plt, savename, sub, mdX, x1D)
         tw = W.cell_vertcat_cellfun(@(x)x(2,:) - x(1,:), mdX{si}.x0, false);
 
 %         tw = tw ./repmat(sqrt(sum(tw.^2,2)),1,3);
-        if contains(savename, 'svm')
+        if contains(option1D, 'svm')
             w2 = [1,0,0]';
-        elseif contains(savename, 'r_a_w')
+        elseif contains(option1D, 'r_a_w')
             w2 = x1D{si}.w_svm(1:3)';
             w2 = w2 ./ sqrt(sum(w2.^2));
         end
@@ -97,6 +98,11 @@ function main_FIGURE_3_model3D_x0(plt, savename, sub, mdX, x1D)
     plt.plot(mdX{1}.time_md, tav, tse, 'line', 'color', plt.custom_vars.color_monkeys);
     plt.setfig_ax('xlabel', 'time', 'ylabel', 'correlation (3D vs 1D)', 'legend', plt.custom_vars.name_monkeys, ...
         'ylim', [-0.2, 1]);
+
+    figdata.panelD.x = mdX{1}.time_md;
+    figdata.panelD.y = tav;
+    figdata.panelD.se = tse;
+    figdata.panelD.p = pp;
 %     plt.sigstar(time_md, pp*0 -0.2, pp);
     plt.dashY(0, [-0.2, 1]);
     plt.update;

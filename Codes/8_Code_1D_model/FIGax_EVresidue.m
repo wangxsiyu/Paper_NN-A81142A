@@ -1,8 +1,8 @@
-function plt = FIGax_EVresidue(plt, mdX, sub, time_md)
+function [plt, figdata] = FIGax_EVresidue(plt, mdX, sub, time_md)
 
     cols = plt.translatecolors({plt.custom_vars.color_rejectaccept{1},'yellow',plt.custom_vars.color_rejectaccept{2}});
-    mks = unique(sub.animal);
-    leg = W.file_prefix(mks,'Monkey', ' ');
+%     mks = unique(sub.animal);
+%     leg = W.file_prefix(mks,'Monkey', ' ');
 %     time_md = mdX{1}.time_md;
 
     evs = W.cellfun(@(x)x.b_ev, mdX);
@@ -16,5 +16,9 @@ function plt = FIGax_EVresidue(plt, mdX, sub, time_md)
         'ylim', [-1 1]);
     plt.plot(time_md, gp.GPav_evs{1}', gp.GPste_evs{1}', 'line', 'color', condcolors);
 %     plt.sigstar(time_md, pp*0 -0.04, pp);
+    figdata.x = time_md;
+    figdata.y = gp.GPav_evs{1}';
+    figdata.se = gp.GPste_evs{1}';
+    figdata.cond = gp.GPav_avCHOICE_byCONDITION;
     plt.dashY(0, [-1 1]);
 end

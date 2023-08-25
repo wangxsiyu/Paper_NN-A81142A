@@ -1,8 +1,4 @@
-function FIGURE_1D_model(plt, mdX, sub, ver, ispartial)
-    %%
-    if plt.set_savename(savename)
-        return;
-    end
+function figdata = FIGURE_1D_model(plt, mdX, sub, ver, ispartial)
     time_md = mdX{1}.time_md;
     mdX = W.cellfun(@(x)x.mdfit, mdX, false);
     %%
@@ -12,26 +8,26 @@ function FIGURE_1D_model(plt, mdX, sub, ver, ispartial)
     % fig - x0
     plt.ax(axIDs(1));
     plt.setfig_ax('ylim', [-1, 1]);
-    plt = FIGax_x0(plt, mdX, sub,time_md);
+    [plt, figdata.PanelA] = FIGax_x0(plt, mdX, sub,time_md);
     if contains(ver, 'scaledEV')
         % fig - evidence
         plt.ax(axIDs(2));
-        plt = FIGax_EV(plt, mdX, sub,time_md);
+        [plt, figdata.PanelB] = FIGax_EV(plt, mdX, sub,time_md);
     elseif contains(ver, 'residue')
         plt.ax(axIDs(2));
-        plt = FIGax_EVresidue(plt, mdX, sub,time_md);
+        [plt, figdata.PanelB] = FIGax_EVresidue(plt, mdX, sub,time_md);
     end
 
     % reject vs accept
     plt.ax(axIDs(3));
-    plt = FIGax_accept_reject(plt, mdX, sub,time_md);
+    [plt, figdata.PanelC] = FIGax_accept_reject(plt, mdX, sub,time_md);
 
     % correlation between a and entropy
     plt.ax(axIDs(4));
-    plt = FIGax_A(plt, mdX, sub,time_md, ispartial);
+    [plt, figdata.PanelD] = FIGax_A(plt, mdX, sub,time_md, ispartial);
 
     % fig - scatter
-    plt = FIGax_Acor(plt, mdX, sub, axIDs(5:6),time_md);
+    [plt, figdata.PanelE] = FIGax_Acor(plt, mdX, sub, axIDs(5:6),time_md);
 
 
     plt.update([],'ABCDE F');

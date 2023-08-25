@@ -1,7 +1,4 @@
-function main_FIGURE_1_loadings(plt, savename, sub, meanFR, LDS)
-    if plt.set_savename(savename)
-        return;
-    end    
+function figdata = main_FIGURE_1_loadings(plt, sub, meanFR, LDS)
     %% FIGURE
     LDS = W.cell_vertcat_cellfun(@(x)x.av_ld, LDS);
     %%
@@ -9,6 +6,9 @@ function main_FIGURE_1_loadings(plt, savename, sub, meanFR, LDS)
     plt.figure(1,3, 'is_title', 1);
     plt.ax(1,3);
     plt.plot(W.bin_middle([0:.1:1]), tav, tse, 'line', 'color', plt.custom_vars.color_monkeys);
+    figdata.panelC.x = W.bin_middle([0:.1:1]);
+    figdata.panelC.y = tav;
+    figdata.panelC.se = tse;
     plt.setfig_ax('xlabel', 'value coding of neurons', ...
         'ylabel', 'weight on the choice dimension', ...
         'legend', plt.custom_vars.name_monkeys, 'legloc', 'NW', 'ylim', [-0.1,0.1], 'ytick', [-0.1:0.05:0.1]);
@@ -27,5 +27,8 @@ function main_FIGURE_1_loadings(plt, savename, sub, meanFR, LDS)
         condcolors = W.arrayfun(@(x)plt.interpolatecolors(cols, [0,.5,1], x), pa);
         plt.ax(1,i);
         plt.plot(W.bin_middle(0:.1:1), tav{i}(od,:), tse{i}(od,:), 'line', 'color', condcolors(od));
+        figdata.panelAB{i}.x = W.bin_middle(0:.1:1);
+        figdata.panelAB{i}.y = tav{i}(od,:);
+        figdata.panelAB{i}.se = tse{i}(od,:);
     end
     plt.update;

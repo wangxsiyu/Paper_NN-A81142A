@@ -1,7 +1,4 @@
-function FIGURE_param_recover(plt, savename, sim, fit)
-    if plt.set_savename(savename)
-        return;
-    end
+function FIGURE_param_recover(plt, sim, fit)
     subi = 10;
     p1 = struct2table(sim{subi}.mdfit);
     p1 = removevars(p1, {'AIC', 'SSE', 'n_params'});

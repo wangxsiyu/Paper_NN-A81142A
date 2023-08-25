@@ -1,7 +1,4 @@
-function stats = FIG_SUP_evidence(plt, savename, sub, mdev)
-    if plt.set_savename(savename)
-        return;
-    end
+function [figdata] = FIG_SUP_evidence(plt, sub, mdev)
     mks = unique(sub.animal);
     idanimal = W.str_getID(sub.animal, mks);
     time_md = mdev{1}.time_md;
@@ -13,7 +10,7 @@ function stats = FIG_SUP_evidence(plt, savename, sub, mdev)
         {'avCHOICE_byCONDITION','ENTROPY_byCONDITION', ...
         'avDELAY_byCONDITION', 'avDROP_byCONDITION', ...
         'avDRIFTRATE_byCONDITION'});
-    plt = FIG_behavior_vs_cue(plt, gp, 'AVDRIFTRATE_BYCONDITION_byANIMAL', 'evidence');
+    [plt,figdata.panelA] = FIG_behavior_vs_cue(plt, gp, 'AVDRIFTRATE_BYCONDITION_byANIMAL', 'evidence');
     %% correlation between empirical evidence and actual
     corAE = [];
     xs = {[],[]};
@@ -39,14 +36,21 @@ function stats = FIG_SUP_evidence(plt, savename, sub, mdev)
         'ylim', [-1 1], ...
         'xtick', -1000:1000:2000, 'xticklabel', {'-1000','Cue On','1000','2000'});
     plt.plot(time_md, av, se, 'line', 'color', cols);
+    figdata.panelB.x = time_md;
+    figdata.panelB.y = av;
+    figdata.panelB.se = se;
+    figdata.panelB.p = pp;
     plt.dashY(0, [-1 1]);
     plt.sigstar(time_md, pp*0 -0.9, pp);
     % fig - scatter
     for i = 1:length(mks)
         plt.ax(i+2);
         plt.setfig_ax('xlabel', 'evidence(neural)', 'ylabel', 'evidence(choice)');
-        stats{1} = plt.scatter(xs{i}, ys{i}, 'corr', 'color', cols{i});
+        stats{i} = plt.scatter(xs{i}, ys{i}, 'corr', 'color', cols{i});
         W.print(stats{1})
+        figdata.panelCD{i}.x = xs{i};
+        figdata.panelCD{i}.y = ys{i};
+        figdata.panelCD{i}.stats = stats{i};
     end
     plt.update;
 end

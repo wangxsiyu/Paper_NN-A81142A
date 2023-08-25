@@ -1,7 +1,4 @@
-function FIGURE_rejectonly(plt, savename, sub, m1,m2,m3)
-    if plt.set_savename(savename)
-        return;
-    end
+function FIGURE_rejectonly(plt, sub, m1,m2,m3)
     %%
     all = [m1;m2;m3];
     time_md = all{1}.time_md;

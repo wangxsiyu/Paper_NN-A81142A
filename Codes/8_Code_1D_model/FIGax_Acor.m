@@ -1,4 +1,4 @@
-function plt = FIGax_Acor(plt, mdX, sub, axIDs, time_md)
+function [plt, figdata] = FIGax_Acor(plt, mdX, sub, axIDs, time_md)
     if ~exist('axIDs', 'var')
         axIDs = [1,2];
     end
@@ -22,9 +22,15 @@ function plt = FIGax_Acor(plt, mdX, sub, axIDs, time_md)
     plt.ax(axIDs(1));
     plt.setfig_ax('xlabel', 'retraction coef', 'ylabel', 'entropy', 'title', 'Monkey V');
     st1 = plt.scatter(xs{1}, ys{1}, 'corr', 'color', cols{1});
+    figdata.MonkeyV_x = xs{1};
+    figdata.MonkeyV_y = ys{1};
+    figdata.MonkeyV_stat = st1;
     plt.ax(axIDs(2));
     plt.setfig_ax('xlabel', 'retraction coef', 'ylabel', 'entropy', 'title', 'Monkey W');
     st2 = plt.scatter(xs{2}, ys{2}, 'corr', 'color', cols{2});
+    figdata.MonkeyW_x = xs{2};
+    figdata.MonkeyW_y = ys{2};
+    figdata.MonkeyW_stat = st2;
     W.print(st1)
     W.print(st2)
 end

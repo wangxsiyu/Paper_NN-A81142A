@@ -1,7 +1,4 @@
-function main_FIGURE_2_model3D(plt, savename, sub, mdX)
-    if plt.set_savename(savename)
-        return;
-    end
+function figdata = main_FIGURE_2_model3D(plt, sub, mdX)
     time_md = mdX{1}.time_md;
     %% compute eig
     nses = size(sub, 1);
@@ -34,6 +31,10 @@ function main_FIGURE_2_model3D(plt, savename, sub, mdX)
             'xtick', -1000:1000:2000, 'xticklabel', {'-1000','Cue On','1000','2000'}, ...
             'ylim', [-1, 0.5]);
         plt.plot(time_md, av, se, 'line', 'color', cols);
+        figdata.panelABC{i}.x = time_md;
+        figdata.panelABC{i}.y = av;
+        figdata.panelABC{i}.se = se;
+        figdata.panelABC{i}.p = pp;
         plt.dashY(0, [-1, 1]);
         plt.sigstar(time_md, pp*0 -0.9, pp);
         

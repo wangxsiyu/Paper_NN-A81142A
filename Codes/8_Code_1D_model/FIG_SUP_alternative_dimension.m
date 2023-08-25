@@ -1,7 +1,4 @@
-function FIG_SUP_alternative_dimension(plt, savename, sub, timeslice, md1, md2)
-    if plt.set_savename(savename)
-        return;
-    end
+function figdata = FIG_SUP_alternative_dimension(plt, sub, timeslice, md1, md2)
     %%
     plt.figure(3,3,'matrix_title',[0 0 0;0 1 1;0 0 0], 'matrix_hole', [1 1 1; 1 1 1; 1 0 0]);
 
@@ -12,21 +9,21 @@ function FIG_SUP_alternative_dimension(plt, savename, sub, timeslice, md1, md2)
     % fig - x0
     plt.ax(axIDs(1));
     plt.setfig_ax('ylim', [-1, 1]);
-    plt = FIGax_x0(plt, mdX, sub,time_md);
+    [plt,figdata.panelA] = FIGax_x0(plt, mdX, sub,time_md);
     % fig - evidence
     plt.ax(axIDs(2));
-    plt = FIGax_EV(plt, mdX, sub,time_md);
+    [plt,figdata.panelB] = FIGax_EV(plt, mdX, sub,time_md);
 
     % reject vs accept
     plt.ax(axIDs(3));
-    plt = FIGax_accept_reject(plt, mdX, sub,time_md);
+    [plt,figdata.panelC] = FIGax_accept_reject(plt, mdX, sub,time_md);
 
     % correlation between a and entropy
     plt.ax(axIDs(4));
-    plt = FIGax_A(plt, mdX, sub,time_md, 0);
+    [plt,figdata.panelD] = FIGax_A(plt, mdX, sub,time_md, 0);
 
     % fig - scatter
-    plt = FIGax_Acor(plt, mdX, sub, axIDs(5:6),time_md);
+    [plt,figdata.panelE] = FIGax_Acor(plt, mdX, sub, axIDs(5:6),time_md);
     %
     time_md = md1{1}.time_md;
     ta = cell(1, size(sub, 1));
@@ -45,7 +42,10 @@ function FIG_SUP_alternative_dimension(plt, savename, sub, timeslice, md1, md2)
     tb = vertcat(tb{:});
     plt.ax(7);
     str = plt.scatter(ta, tb, 'diag');
+    figdata.panelF.x = ta;
+    figdata.panelF.y = tb;
+    figdata.panelF.stats = str;
     plt.setfig_ax('legend', str, 'xlabel', 'svm', 'ylabel', 'proj', 'legloc', 'NW');
-
+    
     plt.update([],'ABCDE F');
 end

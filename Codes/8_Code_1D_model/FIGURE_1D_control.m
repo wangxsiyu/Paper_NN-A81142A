@@ -1,7 +1,4 @@
-function FIGURE_1D_control(plt, savename, sub, d)
-if plt.set_savename(savename)
-    return;
-end
+function FIGURE_1D_control(plt, sub, d)
 %%
 plt.figure;
 mdX = W.cellfun(@(x)x.mdfit, d);

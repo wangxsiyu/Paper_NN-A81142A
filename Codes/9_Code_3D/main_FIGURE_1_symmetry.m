@@ -1,7 +1,4 @@
-function main_FIGURE_1_symmetry(plt, savename, sub, mdX)
-    if plt.set_savename(savename)
-        return;
-    end
+function main_FIGURE_1_symmetry(plt, sub, mdX)
     %% symmetry
     for si = 1:size(sub,1)
         tsym = W.cellfun(@(x)[x(2,3)-x(3,2), x(1,3)-x(3,1), x(1,2)-x(2,1)], mdX{si}.a, false);

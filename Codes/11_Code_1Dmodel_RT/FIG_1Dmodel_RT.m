@@ -1,7 +1,4 @@
-function FIG_1Dmodel_RT(plt, savename, sub, option, md1)
-    if plt.set_savename(savename)
-        return;
-    end
+function figdata = FIG_1Dmodel_RT(plt, sub, option, md1)
     %%
     plt.figure(1,3)
     cols = plt.custom_vars.color_monkeys;
@@ -52,7 +49,10 @@ function FIG_1Dmodel_RT(plt, savename, sub, option, md1)
     plt.sigstar(time_md, pp*0-1, pp);
     plt.dashY(0,[-1 1]);
     % scatter
-
+    figdata.panelA.x = time_md;
+    figdata.panelA.y = av;
+    figdata.panelA.se = se;
+    figdata.panelA.p = pp;
     rtav = sub.(['avRT_' upper(option)]);
     rtse = sub.(['seRT_' upper(option)]);
     for i = 1:size(rt,1)
@@ -85,6 +85,9 @@ function FIG_1Dmodel_RT(plt, savename, sub, option, md1)
         set(l, 'color', tc{1});
         set(l, 'linewidth', plt.param_plt.linewidth);
         W.print(stat{i})
+        figdata.panelB{i}.x = xs1{i};
+        figdata.panelB{i}.y = ys1{i};
+        figdata.panelB{i}.p = stat{i};
     end
     plt.update;
 end
