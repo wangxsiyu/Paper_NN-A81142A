@@ -36,7 +36,8 @@ W_lp_sfx.set_sfx('t0t1000',{'first20', 'first50'});
 pip.add_template_with_sfx(W_lp_sfx.sfxid, 'decoding');
 %% projection to 1-D
 idxlist.id_1D = W_lp_sfx.next_sfx_ID;
-W_lp_sfx.set_sfx('t0t1000', {'mean', 'svmp'}, {'midRT'}, {'nstd'});
+W_lp_sfx.add_sfx('t0t1000', {'mean', 'svmp'}, {'midRT'}, {'nstd'});
+W_lp_sfx.add_sfx('t0t1000', {'svmp'}, {'midRT', 't0t1000'}, {'nstd'});
 pip.add_template_with_sfx(idxlist.id_1D, 'project1D_custom');
 %% calculate posterior
 pip.add_template_with_sfx(idxlist.id_1D, 'posterior1D');
@@ -85,12 +86,12 @@ pip.pip_addstep_folder_sfx(W_lp_sfx.sfxid, 'function_energy_landscape', ...
     'outputnames', 'ELsimu_autosfx', 'jobname', 'EL');
 %% model-3D
 W_lp_sfx.next_sfx_ID;
-W_lp_sfx.add_sfx('t0t1000', {'svmp'}, {'midRT'}, {'nstd'});
+W_lp_sfx.add_sfx('t0t1000', {'svmp'}, {'t0t1000'}, {'nstd'});
 pip.pip_addstep_folder_sfx(W_lp_sfx.sfxid, 'function_3D_projection', {'variable2'}, ...
     {'pca_autosfx1', 'x1D_autosfx'}, 'outputnames', 'x3D_autosfx', 'jobname', 'project3D');
 %% fit-3D
 idxlist.id_3Dmodel = W_lp_sfx.next_sfx_ID;
-W_lp_sfx.add_sfx('t0t1000', {'svmp'}, {'midRT'}, {'nstd'}, {'attractor'}, {'npool3'});
+W_lp_sfx.add_sfx('t0t1000', {'svmp'}, {'t0t1000'}, {'nstd'}, {'attractor'}, {'npool3'});
 pip.pip_addstep_folder_sfx(idxlist.id_3Dmodel, 'function_3D_model', {'variable5', 'variable6_num', nwin}, ...
     {'x3D_autosfx4'}, [4,1,2,3], 'outputnames', 'model3D_autosfx', 'jobname', 'fit 3D');
 %% positive vs negative neurons
