@@ -9,7 +9,6 @@ jobs = W_job_looper;
 %% setup pipeline for the main analysis
 pip = W_pipeline_neuro({'folder','sfx'}, W_lp_folder, W_lp_sfx);
 idxlist = [];
-% pip.poweroff;
 %% behavior
 pip.pip_addstep_folder({'all','all'}, 'main_1_behaviors', {}, {'dataset'}, ...
     'outputnames', 'behavior_sub', ...

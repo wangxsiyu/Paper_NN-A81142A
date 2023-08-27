@@ -91,7 +91,7 @@ pip.pip_addstep_folder_sfx_all(W_lp_sfx.sfxid, 'FIGURE_param_recover', {}, {'mod
 W_lp_sfx.next_sfx_ID;
 W_lp_sfx.set_sfx('t0t1000', {'svmp_midRT'}, {'nstd'}, {'npool1'}, 'choice', {'medianRT'}, {'avGrad'});
 pip.pip_addstep_folder_sfx_all(W_lp_sfx.sfxid, 'main_FIGURE_2_EL_bycue', {sub, 'variable7', 'variable8'}, ...
-    {'ELsimu_autosfx6'}, [4,1,2,3], 'outputnames', 'Extended Fig10');
+    {'ELsimu_autosfx6'}, [4,1,2,3], 'outputnames', 'Extended Fig10', 'is_output', true);
 %% symmetry 3D
 W_lp_sfx.next_sfx_ID;
 W_lp_sfx.set_sfx('t0t1000', {'svmp_t0t1000_nstd'}, ...

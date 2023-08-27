@@ -42,7 +42,7 @@ function figdata = FIG_Energy_landscape_by_cue(plt, EL, sub, timeslice, option)
         leg = arrayfun(@(x)sprintf("p = %.2f", x), pa(i,od));
         plt.setfig_ax('xlabel', 'position', 'ylabel', 'V', ...
             'legloc','eastoutside',...
-            'legend', leg, 'xlim', [-5, 5], 'ylim', [-10, 25]);
+            'legend', leg, 'xlim', [-5, 5], 'ylim', [-10, 20]);
         plt.plot(x_EL, avEL{i}(od,:),seEL{i}(od,:),'shade', 'color', condcolors(od));
         plt.new;
         figdata.panel{i}.x = x_EL;

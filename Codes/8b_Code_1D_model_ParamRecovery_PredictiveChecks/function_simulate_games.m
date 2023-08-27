@@ -1,4 +1,5 @@
 function out = function_simulate_games(x1D0, md, sub)
+    rng(0);
     out = [];
     ntime = size(md.mdfit.a, 1);
     games = x1D0.games;
