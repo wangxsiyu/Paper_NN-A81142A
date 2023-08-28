@@ -1,0 +1,142 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration file="W:\Wang_0_Pending\Paper_NN-A81142A\Codes_Toolbox\Wang_v1.0.0.prj" location="W:\Wang_0_Pending\Paper_NN-A81142A\Codes_Toolbox" name="Wang_v1.0.0" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>Wang_v1.0.0</param.appname>
+    <param.authnamewatermark>Siyu Wang</param.authnamewatermark>
+    <param.email>wangxsiyu@gmail.com</param.email>
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot>W:\Wang_0_Pending\2023_Wang_Averbeck_Attractor_Uncertainty\Manuscript\FinalRevision_NN\cover\cover jpg.jpg</param.screenshot>
+    <param.version>1.0.0</param.version>
+    <param.output>${PROJECT_ROOT}\Wang_v1.0.0.mltbx</param.output>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.guid>65615bee-eacf-4c08-8eab-d1b3f1d55762</param.guid>
+    <param.exclude.filters />
+    <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
+    <param.examples />
+    <param.demosxml />
+    <param.apps />
+    <param.registered.apps />
+    <param.docs />
+    <param.getting.started.guide />
+    <param.matlabpath.excludes />
+    <param.javaclasspath.excludes />
+    <param.exported.on.package>false</param.exported.on.package>
+    <param.required.addons>
+      <requiredaddons>
+        <requiredAddOn earliest="earliest" fromRepository="true" id="e563da55-4a80-11e4-9553-005056977bd0" include="true" latest="latest">cprintf - display formatted colored text in Command Window</requiredAddOn>
+      </requiredaddons>
+    </param.required.addons>
+    <param.matlab.project.id />
+    <param.matlab.project.name />
+    <param.release.start />
+    <param.release.end />
+    <param.release.current.only>false</param.release.current.only>
+    <param.compatiblity.windows>true</param.compatiblity.windows>
+    <param.compatiblity.macos>true</param.compatiblity.macos>
+    <param.compatiblity.linux>true</param.compatiblity.linux>
+    <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
+    <param.installation.map />
+    <param.additional.sw.names />
+    <param.additional.sw.licenses />
+    <param.additional.sw.win.url />
+    <param.additional.sw.mac.url />
+    <param.additional.sw.linux.url />
+    <unset>
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.output />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.exclude.filters />
+      <param.exclude.pcodedmfiles />
+      <param.examples />
+      <param.demosxml />
+      <param.apps />
+      <param.registered.apps />
+      <param.docs />
+      <param.getting.started.guide />
+      <param.matlabpath.excludes />
+      <param.javaclasspath.excludes />
+      <param.exported.on.package />
+      <param.matlab.project.id />
+      <param.matlab.project.name />
+      <param.release.start />
+      <param.release.end />
+      <param.release.current.only />
+      <param.compatiblity.windows />
+      <param.compatiblity.macos />
+      <param.compatiblity.linux />
+      <param.compatiblity.matlabonline />
+      <param.installation.map />
+      <param.additional.sw.names />
+      <param.additional.sw.licenses />
+      <param.additional.sw.win.url />
+      <param.additional.sw.mac.url />
+      <param.additional.sw.linux.url />
+    </unset>
+    <fileset.rootdir>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\.DS_Store</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W.m</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Analysis</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Behavior</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_EyeTracker</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Files</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_handle</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Import</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_JAGS</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Looper</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Neuro</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Pipeline</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Plot</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Preprocess</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_RL_model</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_RL_optimizer</file>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\Wang_v1.0.0\W_Tools</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included>
+      <file>W:\Wang_Codes\2023_Codes_MATLAB\MATLAB_packages\tools_cohend\computeCohen_d.m</file>
+    </fileset.depfun.included>
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}" name="Wang_v1.0.0.mltbx" optional="false">W:\Wang_0_Pending\Paper_NN-A81142A\Codes_Toolbox\Wang_v1.0.0.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2022a</root>
+      <toolboxes>
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
