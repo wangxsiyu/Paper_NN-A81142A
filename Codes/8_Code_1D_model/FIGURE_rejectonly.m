@@ -9,6 +9,7 @@ function FIGURE_rejectonly(plt, sub, m1,m2,m3)
         plt.ax(1,i);
         tmdX = W.cellfun(@(x)x.mdfit, all(i,:), false);
         plt = FIGax_rejectonly(plt, tmdX, sub, time_md);
+        plt.setfig_ax('legloc', W.iif(i == 3, 'SE', 'none'));
     end
     plt.update;
 end

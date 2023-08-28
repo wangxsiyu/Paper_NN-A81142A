@@ -51,5 +51,5 @@ function figdata = FIGS4_Energy_landscape_by_choice(plt, EL, sub, timeslice, opt
         figdata.panel{i}.se = seEL{i}([od*2-1, od*2],:);
     end
     plt.update;
-    plt.save(sprintf('FigureS4 - energy landscape by cue at %sms', W.string(timeslice)));
+%     plt.save(sprintf('FigureS4 - energy landscape by cue at %sms', W.string(timeslice)));
 end

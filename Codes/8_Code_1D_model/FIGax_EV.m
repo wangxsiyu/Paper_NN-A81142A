@@ -16,5 +16,5 @@ function [plt, figdata] = FIGax_EV(plt, mdX, sub, time_md)
     figdata.se = se;
     figdata.p = pp;
     plt.sigstar(time_md, pp*0 -0.04, pp);
-    plt.dashY(0, [-0.05, 0.3]);
+    plt.dashY(0, [-0.05, ceil(max(av,[],'all') * 10)/10]);
 end

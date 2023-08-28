@@ -9,6 +9,7 @@ jobs = W_job_looper;
 %% setup pipeline for the main analysis
 pip = W_pipeline_neuro({'folder','sfx'}, W_lp_folder, W_lp_sfx);
 idxlist = [];
+% pip.pip_addstep_deletefiles('model1D_t0t1000_svmp_midRT_nstd_scaledEV_npool1*')
 %% behavior
 pip.pip_addstep_folder({'all','all'}, 'main_1_behaviors', {}, {'dataset'}, ...
     'outputnames', 'behavior_sub', ...
@@ -56,7 +57,7 @@ W_lp_sfx.add_sfx("t0t1000", {'mean', 'svmp'}, {'midRT'}, {'nstd'}, "scaledEV", '
 % fit EV vs residue
 W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT'}, {'nstd'}, {'scaledEV', 'residue'}, 'npool1');
 % fit based on location alone/soft
-W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT'}, {'nstd'}, {'scaledEVsoft'}, 'npool1');
+W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT'}, {'nstd'}, {'scaledEVloc'}, 'npool1');
 % fit 1 basin
 W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT'}, {'nstd'}, "1basin", "npool1");
 % fit reject only
