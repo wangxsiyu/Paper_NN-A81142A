@@ -55,15 +55,15 @@ idxlist.id_1Dmodel = W_lp_sfx.next_sfx_ID;
 % fit svm vs mean
 W_lp_sfx.add_sfx("t0t1000", {'mean', 'svmp'}, {'midRT'}, {'nstd'}, "scaledEV", 'npool1');
 % fit EV vs residue
-W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT'}, {'nstd'}, {'scaledEV', 'residue'}, 'npool1');
+W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT','t0t1000'}, {'nstd'}, {'scaledEV', 'residue'}, 'npool1');
 % fit based on location alone/soft
-W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT'}, {'nstd'}, {'scaledEVloc'}, 'npool1');
+W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT','t0t1000'}, {'nstd'}, {'scaledEVloc'}, 'npool1');
 % fit 1 basin
-W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT'}, {'nstd'}, "1basin", "npool1");
+W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT','t0t1000'}, {'nstd'}, "1basin", "npool1");
 % fit reject only
-W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT'}, {'nstd'}, {'scaledEVrejectonly','scaledEVpyDDM', 'scaledEVpyDDMCB'}, "npool1");
+W_lp_sfx.add_sfx("t0t1000", {'svmp'}, {'midRT','t0t1000'}, {'nstd'}, {'scaledEVrejectonly','scaledEVpyDDM', 'scaledEVpyDDMCB'}, "npool1");
 % fit control
-W_lp_sfx.add_sfx('t0t1000', {'svmp'}, {'midRT'}, 'nstd', 'control', 'npool1');
+W_lp_sfx.add_sfx('t0t1000', {'svmp'}, {'midRT','t0t1000'}, 'nstd', 'control', 'npool1');
 pip.pip_addstep_folder_sfx(idxlist.id_1Dmodel, 'function_1D_model', {'variable5', 'variable6_num', nwin}, ...
     {'x1D_autosfx4', 'posterior1D_autosfx4', 'sub'}, [4,5,6,1,2,3], 'outputnames', 'model1D_autosfx', ...
     'jobname', '1D model');
